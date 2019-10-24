@@ -1,0 +1,12 @@
+{
+    "metadata": {
+        "deviceid": "fd3734",
+        "tenant": "jota_macedo",
+        "timestamp": 1571343283420
+    },
+    "attrs": {
+        "peso_pronto_a": "0,71",
+        "machine_running": true,
+        "fwts": "2019-10-17T17:14:43-03:00"
+    }
+}
