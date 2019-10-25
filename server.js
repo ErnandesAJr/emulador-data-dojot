@@ -7,7 +7,7 @@ const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
-const DataFaker = require("./services/create-data-fake");
+const SendMessage = require("./services/send-message");
 
 app.use(express.static(path.join(__dirname,'public')));
 app.set('views',path.join(__dirname,'public'));
@@ -20,12 +20,8 @@ app.use('/',(req,res) =>{
 
 io.on('connection', socket => {
 
-   console.log(`Socket conectado : ${socket.id}`)
-
-   setInterval(() => {    
-    var dataFaker = DataFaker.createDataFake();
-    socket.broadcast.emit('all', dataFaker);
-   }, 1000); 
+  console.log(`Socket conectado : ${socket.id}`)
+  SendMessage.send('all',socket);
 
 });
 
